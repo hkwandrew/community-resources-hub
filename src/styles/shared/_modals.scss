@@ -1,0 +1,39 @@
+@use "./tokens" as *;
+
+@mixin shared-modals() {
+
+	.crh-dialog {
+		background: transparent;
+		border: 0;
+		margin: auto;
+		max-width: none;
+		padding: 0;
+	}
+
+	.crh-dialog::backdrop {
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	.crh-dialog__close {
+		align-items: center;
+		background: transparent;
+		border: 0;
+		display: inline-flex;
+		justify-content: center;
+		padding: 0;
+	}
+
+	.crh-dialog__close svg {
+		display: block;
+		height: 24px;
+		width: 24px;
+	}
+
+	.crh-dialog__close path {
+		fill: currentcolor;
+	}
+
+	.crh-dialog-open {
+		overflow: hidden;
+	}
+}

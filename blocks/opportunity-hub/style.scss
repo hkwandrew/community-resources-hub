@@ -1,0 +1,1974 @@
+@use "../../src/styles/shared/tokens" as *;
+@use "../../src/styles/shared/modals" as modals;
+@include modals.shared-modals();
+// @include crh-surface-vars('.crh-opportunity-hub');
+
+.crh-opportunity-hub {
+	--fc-border-color: #e8e8e8;
+	background: var(--crh-surface);
+	color: var(--crh-text);
+	margin-top: 24px;
+}
+
+.crh-opportunity-hub__inner {
+	margin: 0 auto;
+	width: 100%;
+
+}
+
+.crh-opportunity-hub__intro-grid {
+	display: grid;
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+.crh-opportunity-hub__column--one-third,
+.crh-opportunity-hub__column--one-half,
+.crh-opportunity-hub__column--two-thirds,
+.crh-opportunity-hub__column--full {
+	width: 100%;
+}
+
+.crh-opportunity-hub__richtext {
+	color: var(--crh-text);
+}
+
+.wm-bci-workflow-section__actions,
+.crh-opportunity-hub__actions {
+	margin-bottom: 64px;
+	transform: scale(1.5);
+	transform-origin: left;
+}
+
+.button.wm-bci-workflow-section__submit-trigger,
+.button.crh-opportunity-hub__submit-trigger {
+	align-items: center;
+	border: 0;
+	column-gap: 8px;
+	display: inline-grid;
+	grid-template-columns: max-content 39px;
+	padding: 4px 4px 4px 1rem !important;
+}
+
+.button.wm-bci-workflow-section__submit-trigger::before,
+.button.crh-opportunity-hub__submit-trigger::before {
+	height: 39px;
+	right: 4px;
+	width: 39px;
+}
+
+.button.wm-bci-workflow-section__submit-trigger .button-text,
+.button.crh-opportunity-hub__submit-trigger .button-text {
+	margin-right: 0;
+}
+
+.wm-bci-workflow-section__submit-trigger > svg,
+.crh-opportunity-hub__submit-trigger > svg {
+	justify-self: center;
+}
+
+.wm-bci-workflow-section__calendar-modal-layer {
+	--wm-bci-submit-modal-left: 50%;
+	--wm-bci-submit-modal-top: 50%;
+	--wm-bci-submit-overlay-height: 100%;
+	--wm-bci-submit-overlay-left: 0;
+	--wm-bci-submit-overlay-top: 0;
+	--wm-bci-submit-overlay-width: 100%;
+
+	position: relative;
+	width: 100%;
+}
+
+.wm-bci-workflow-section__calendar-modal-layer .wm-bci-submit-modal-overlay {
+	background: rgba(0, 0, 0, 0.5);
+	height: var(--wm-bci-submit-overlay-height);
+	left: var(--wm-bci-submit-overlay-left);
+	overflow-y: auto;
+	position: absolute;
+	top: var(--wm-bci-submit-overlay-top);
+	width: var(--wm-bci-submit-overlay-width);
+	z-index: 20;
+}
+
+.wm-bci-workflow-section__calendar-modal-layer .wm-bci-submit-modal-overlay[hidden] {
+	display: none;
+}
+
+.wm-bci-submit-modal {
+	background: $wm-bci-surface;
+	border: 0;
+	border-radius: 8px;
+	box-sizing: border-box;
+	box-shadow: 0 31px 49px -31px rgba(0, 0, 0, 0.25);
+	left: var(--wm-bci-submit-modal-left);
+	margin: 0;
+	max-height: min(815px, calc(100% - 3rem));
+	max-width: 632px;
+	overflow-y: auto;
+	padding: 3rem 2rem 2rem;
+	position: absolute;
+	top: var(--wm-bci-submit-modal-top);
+	transform: translate(-50%, -50%);
+	width: min(calc(100% - 3rem), 632px);
+	z-index: 21;
+}
+
+.wm-bci-submit-modal[hidden] {
+	display: none;
+}
+
+.wm-bci-submit-modal .close-button,
+.wm-bci-opportunity-modal .close-button {
+	align-items: center;
+	background: $wm-bci-surface;
+	border: 1px solid $wm-bci-text-muted;
+	border-radius: 999px;
+	color: $wm-bci-text-muted;
+	cursor: pointer;
+	display: inline-flex;
+	height: 36px;
+	justify-content: center;
+	padding: 0;
+	position: absolute;
+	right: 1.85rem;
+	top: 1.85rem;
+	width: 36px;
+	z-index: 3;
+}
+
+.wm-bci-submit-modal .close-button path,
+.wm-bci-opportunity-modal .close-button path {
+	fill: currentcolor;
+}
+
+.wm-bci-submit-modal .wm-bci-submit-modal__title {
+	color: $blue;
+	font-family: $body-serif-family;
+	font-size: 2rem;
+	font-weight: 300;
+	letter-spacing: -0.32px;
+	line-height: 1.3;
+	margin: 0;
+}
+
+.wm-bci-submit-modal__body {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.wm-bci-submit-modal__header {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding-right: 0;
+}
+
+.wm-bci-submit-modal__intro {
+	color: $wm-bci-text;
+	font-size: 1.25rem;
+	line-height: 1.4;
+	margin: 0;
+	max-width: none;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gform_fields {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem !important;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gfield {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin: 0;
+	padding: 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .ginput_container {
+	margin: 0;
+}
+
+.wm-bci-submit-modal__form fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gfield_label,
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gform-field-label {
+	color: $wm-bci-text !important;
+	font-family: $body-font-family !important;
+	font-size: 1rem !important;
+	font-weight: 700 !important;
+	line-height: 1.3 !important;
+	margin: 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gform-field-label--type-inline {
+	font-weight: 400 !important;
+	margin: 0;
+}
+
+.wm-bci-submit-modal__form .gform-field-label--type-sub {
+	color: $wm-bci-text-muted !important;
+	display: block;
+	font-size: 0.875rem !important;
+	font-weight: 400 !important;
+	margin: 0.375rem 0 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gfield--type-radio > .gfield_label {
+	margin-bottom: 15px !important;
+}
+
+.wm-bci-submit-modal__form .gfield_required,
+.wm-bci-submit-modal__form .gfield_required_text,
+.wm-bci-submit-modal__form .gfield_required_asterisk {
+	color: $wm-bci-type-learning !important;
+	font-size: 1rem !important;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.wm-bci-submit-modal__form .gfield_description,
+.wm-bci-submit-modal__form .gform_fileupload_rules,
+.wm-bci-submit-modal__form .ginput_counter,
+.wm-bci-submit-modal__form .validation_message {
+	color: $wm-bci-text-muted !important;
+	font-size: 0.875rem;
+	line-height: 1.4;
+	margin: 0.5rem 0 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] :where(input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="hidden"]):not([type="file"]),
+textarea,
+select) {
+	background: $wm-bci-surface-muted !important;
+	border: 1px solid $wm-bci-border !important;
+	border-radius: 8px !important;
+	box-shadow: none;
+	box-sizing: border-box;
+	color: $wm-bci-text !important;
+	font-size: 1rem !important;
+	line-height: 1.3 !important;
+	min-height: 2.5rem;
+	padding: 0.5rem 0.75rem;
+	width: 100%;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] :where(input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="hidden"]):not([type="file"]),
+select) {
+	height: 2.5rem !important;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] textarea {
+	min-height: 6.0625rem;
+	resize: vertical;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] :where(input:focus, textarea:focus, select:focus) {
+	border-color: $blue;
+	box-shadow: 0 0 0 2px rgba($blue, 0.18);
+	outline: 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] ::placeholder {
+	color: $wm-bci-text-muted;
+	opacity: 1;
+}
+
+.wm-bci-submit-modal__form .ginput_complex {
+	gap: 0.75rem;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gfield_radio,
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gfield_checkbox {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin: 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gchoice {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0;
+	min-height: 21px;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gchoice br {
+	display: none;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gfield-choice-input {
+	appearance: none;
+	background: $wm-bci-surface !important;
+	border: 1px solid $wm-bci-text;
+	box-shadow: none;
+	flex: 0 0 1rem;
+	height: 1rem;
+	margin: 0;
+	width: 1rem;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] input[type="radio"].gfield-choice-input {
+	border-radius: 999px;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] input[type="checkbox"].gfield-choice-input {
+	border-radius: 3px;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gfield-choice-input:checked {
+	background: radial-gradient(circle, $wm-bci-type-learning 0 35%, transparent 40%) $wm-bci-surface !important;
+	border-color: $wm-bci-type-learning;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gchoice_other_control {
+	display: none;
+	flex: 1 0 100%;
+	height: 6.0625rem !important;
+	margin: 0 !important;
+	padding: 9px 23px 67px !important;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gchoice:has(.gchoice_other_control:not([disabled])) {
+	row-gap: 15px;
+	width: 100%;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gchoice_other_control:not([disabled]) {
+	display: block;
+}
+
+.wm-bci-submit-modal__form .gform_drop_area {
+	background: $wm-bci-surface-muted;
+	border: 1px dashed $wm-bci-border;
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+.wm-bci-submit-modal__form button.gform_button_select_files {
+	background: $wm-bci-surface;
+	border: 1px solid $wm-bci-border;
+	border-radius: 8px !important;
+	color: $blue !important;
+	height: auto;
+	padding: 0.625rem 1rem !important;
+	text-transform: none;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gform_footer,
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] .gform-footer {
+	margin: 0;
+	padding: 2.5rem 0 0;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] button.gfbutton {
+	background-color: $blue !important;
+	border-radius: 46px !important;
+	color: $wm-bci-surface-muted !important;
+	display: inline-flex;
+	font-size: 14px;
+	font-weight: 700;
+	height: 47px;
+	letter-spacing: 0.7px;
+	line-height: 1;
+	margin: 0 !important;
+	// min-width: 285px;
+	padding: 0.25rem 0.25rem 0.25rem 1rem !important;
+	text-transform: uppercase;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] button.gfbutton::before {
+	background-color: $wm-bci-surface-muted;
+	height: 39px;
+	right: 4px;
+	width: 39px;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] button.gfbutton .button-text {
+	margin-right: 0.5rem;
+}
+
+.wm-bci-submit-modal__form .gform_wrapper form[id^="gform_"] button.gfbutton .button-text + [width] {
+	height: 20px;
+	margin: 0 9.5px;
+	width: 20px;
+}
+
+.wm-bci-submit-modal__form .gform_validation_errors {
+	background: $wm-bci-surface-muted;
+	border: 1px solid rgba($wm-bci-type-learning, 0.35);
+	border-radius: 8px;
+	box-shadow: none;
+	margin: 0 0 2rem;
+	padding: 1rem;
+}
+
+.wm-bci-submit-modal__form .gfield_error :where(input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="hidden"]):not([type="file"]),
+textarea,
+select) {
+	border-color: $wm-bci-type-learning;
+}
+
+.wm-bci-workflow-section__calendar {
+	--wm-bci-calendar-day-height: 12rem;
+
+	width: 100%;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-toolbar {
+	align-items: center;
+	margin-bottom: 2.5rem;
+}
+
+@media print,
+	screen and (min-width: 64em) {
+
+	.wm-bci-workflow-section__calendar[data-wm-bci-calendar-region] .gv-fullcalendar .fc-toolbar {
+		column-gap: 1rem;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+		justify-content: stretch;
+		width: 100%;
+	}
+
+	.wm-bci-workflow-section__calendar[data-wm-bci-calendar-region] .gv-fullcalendar .fc-toolbar .fc-toolbar-chunk {
+		min-width: 0;
+	}
+
+	.wm-bci-workflow-section__calendar[data-wm-bci-calendar-region] .gv-fullcalendar .fc-toolbar .fc-toolbar-chunk:first-child {
+		justify-self: start;
+	}
+
+	.wm-bci-workflow-section__calendar[data-wm-bci-calendar-region] .gv-fullcalendar .fc-toolbar .fc-toolbar-chunk:nth-child(2) {
+		justify-self: center;
+		text-align: center;
+	}
+
+	.wm-bci-workflow-section__calendar[data-wm-bci-calendar-region] .gv-fullcalendar .fc-toolbar .fc-toolbar-chunk:last-child {
+		justify-self: end;
+	}
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-toolbar-title {
+	color: $wm-bci-text-strong;
+	font-family: $body-serif-family;
+	font-size: clamp(2.5rem, 4vw, 3rem);
+	font-weight: 300;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-button {
+	padding: 0.625rem 1rem;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-prev-button.fc-button-primary,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-next-button.fc-button-primary {
+	align-items: center;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	color: $wm-bci-text;
+	display: inline-flex;
+	height: 40px;
+	justify-content: center;
+	padding: 0;
+	width: 40px;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-prev-button.fc-button-primary:hover,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-prev-button.fc-button-primary:focus-visible,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-next-button.fc-button-primary:hover,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-next-button.fc-button-primary:focus-visible {
+	background: transparent;
+	border-color: transparent;
+	color: $wm-bci-text-strong;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .wm-bci-calendar-nav-icon {
+	display: block;
+	flex: 0 0 auto;
+	height: 40px;
+	pointer-events: none;
+	width: 40px;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-prev-button.fc-button-primary .fc-icon,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-next-button.fc-button-primary .fc-icon {
+	display: none;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-today-button {
+	display: flex;
+	padding: 10.291px 18px 8.709px 18px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	border: 1px solid $gray-500 !important;
+	background: #ececed;
+	color: $gray-600 !important;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.3;
+	opacity: 1;
+	max-height: 40px;
+
+	&:disabled {
+		background: #ececed;
+		border: 1px solid $gray-300 !important;
+		color: $gray-400 !important;
+	}
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-button-group {
+	background: $wm-bci-surface;
+	border: 1px solid $wm-bci-border;
+	border-radius: 0.5rem;
+	gap: 0;
+	overflow: hidden;
+
+	&:has(.fc-prev-button) {
+		border: unset;
+	}
+
+	.fc-prev-button,
+	.fc-next-button {
+
+		&:hover svg > path:first-child {
+			fill: $gray-100;
+		}
+	}
+}
+
+.wm-bci-workflow-section__calendar .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
+	margin-left: unset !important;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-button-group .fc-button {
+	background: $gray-100;
+	border: 0;
+	border-right: 1px solid $gray-200;
+	border-radius: 0;
+	color: $wm-bci-text;
+
+	&.fc-prev-button {
+		border-right: unset;
+	}
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-button-group .fc-button:last-child {
+	border-right: 0;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-button-group .fc-button:hover,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-button-group .fc-button:focus-visible {
+	color: $blue;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-button-group .fc-button.fc-button-active,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-button-group .fc-button:not(:disabled):active {
+	background: $teal;
+	color: $wm-bci-surface;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-col-header-cell {
+	background-color: $blue;
+	// height: 38px;
+	padding: 8px 12px;
+	text-align: left;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-col-header-cell-cushion {
+	color: $white !important;
+	font-size: 1rem;
+	font-weight: 700 !important;
+	line-height: 1.3;
+	padding: 0;
+	text-decoration: none;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day-number {
+	color: $gray-1000;
+	font-size: 1.25rem;
+	font-weight: 500;
+	line-height: 1.3;
+	padding: 12px;
+	text-decoration: none;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day {
+	background-color: $white !important;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day.fc-day-other {
+	background-color: #f8f8f8 !important;
+}
+
+.wm-bci-calendar-toolbar-filters {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.wm-bci-calendar-toolbar-filter {
+	align-items: center;
+	display: inline-flex;
+	position: relative;
+	z-index: 40;
+}
+
+.wm-bci-calendar-toolbar-filter[hidden] {
+	display: none;
+}
+
+.wm-bci-calendar-toolbar-filter[open]::after {
+	content: "";
+	height: 0.5rem;
+	inline-size: max(100%, 15.75rem);
+	left: 0;
+	position: absolute;
+	top: 100%;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger {
+	appearance: none;
+	align-items: center;
+	background: $wm-bci-surface;
+	border: 1px solid $wm-bci-border;
+
+	@include border-radius-small();
+	box-shadow: none;
+	color: $wm-bci-text-strong;
+	cursor: pointer;
+	display: inline-flex;
+	gap: 0.625rem;
+	font-family: $body-font-family;
+	font-size: 1rem;
+	font-weight: 600;
+	height: 2.5rem;
+	justify-content: space-between;
+	letter-spacing: 0;
+	line-height: 1.3;
+	min-height: 2.5rem;
+	min-width: 10.875rem;
+	padding: 0.5rem 1rem !important;
+	position: relative;
+	list-style: none;
+	text-align: left;
+	text-decoration: none;
+	text-transform: none;
+	white-space: nowrap;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger::-webkit-details-marker {
+	display: none;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger::before {
+	content: none !important;
+	display: none !important;
+}
+
+.wm-bci-filter-chevron {
+	color: currentcolor;
+	display: inline-flex;
+	flex: 0 0 auto;
+	justify-content: center;
+	pointer-events: none;
+	transition: transform 160ms ease;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger > .wm-bci-filter-chevron {
+	margin-left: 0.125rem;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger:hover,
+.wm-bci-calendar-toolbar-filter__trigger:focus-visible {
+	background: $wm-bci-surface;
+	border-color: $gray-400;
+	color: $wm-bci-text-strong;
+	box-shadow: none;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger:focus-visible {
+	outline: 2px solid $teal;
+	outline-offset: 2px;
+}
+
+.wm-bci-calendar-toolbar-filter[open] .wm-bci-filter-chevron,
+.wm-bci-calendar-toolbar-filter__trigger[aria-expanded="true"] .wm-bci-filter-chevron,
+.wm-bci-opportunities__filter-dropdown[open] .wm-bci-filter-chevron,
+.wm-bci-opportunities__filter-dropdown .wm-bci-opportunities__filter-trigger[aria-expanded="true"] .wm-bci-filter-chevron {
+	transform: scale(-1);
+}
+
+.wm-bci-calendar-toolbar-filter__panel {
+	background: $wm-bci-surface;
+	border: 0;
+
+	@include border-radius-small();
+	box-shadow: 0 4px 2px rgba(0, 23, 52, 0.04);
+	left: 0;
+	min-width: 15.625rem;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	z-index: 80;
+}
+
+.wm-bci-calendar-toolbar-filter__member-panel {
+	min-width: 0;
+	width: min(53.125rem, calc(100vw - 2rem));
+}
+
+.wm-bci-calendar-toolbar-filter__member-columns {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wm-bci-calendar-toolbar-filter__member-column {
+	min-width: 0;
+}
+
+.wm-bci-calendar-toolbar-filter__member-column + .wm-bci-calendar-toolbar-filter__member-column {
+	border-left: 1px solid $gray-50;
+}
+
+.wm-bci-calendar-toolbar-filter__option {
+	align-items: center;
+	border-bottom: 1px solid $gray-50;
+	color: $wm-bci-text;
+	cursor: pointer;
+	display: flex;
+	font-family: $body-font-family;
+	font-size: 0.875rem;
+	gap: 0.625rem;
+	line-height: 1.35;
+	margin: 0;
+	min-height: 2.625rem;
+	padding: 0.75rem 1rem;
+	transition: background-color 160ms ease;
+	white-space: nowrap;
+}
+
+.wm-bci-calendar-toolbar-filter__option:last-child {
+	border-bottom: 0;
+}
+
+.wm-bci-calendar-toolbar-filter__option:hover,
+.wm-bci-calendar-toolbar-filter__option:focus-within {
+	background: $wm-bci-surface-muted;
+}
+
+.wm-bci-calendar-toolbar-filter__checkbox {
+	appearance: none;
+	background: $wm-bci-surface;
+	border: 1.5px solid #4f5559;
+	border-radius: 2px;
+	cursor: pointer;
+	flex: 0 0 auto;
+	height: 1rem;
+	margin: 0 !important;
+	width: 1rem;
+}
+
+.wm-bci-calendar-toolbar-filter__checkbox:checked {
+	background: $blue;
+	border-color: $blue;
+}
+
+.wm-bci-calendar-toolbar-filter__checkbox:focus-visible {
+	outline: 2px solid $teal;
+	outline-offset: 2px;
+}
+
+.crh-opportunity-hub button.wm-bci-calendar-toolbar-clear,
+.crh-opportunity-hub button.wm-bci-opportunities__clear-filters {
+	appearance: none;
+	background: transparent !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	color: $blue !important;
+	cursor: pointer;
+	display: inline;
+	font-family: $body-font-family;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	height: auto;
+	letter-spacing: normal;
+	line-height: 1.3;
+	margin: 0;
+	min-height: 0;
+	overflow: visible;
+	padding: 0 !important;
+	position: static;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+	text-transform: none;
+	transition: none;
+	width: auto;
+}
+
+.crh-opportunity-hub button.wm-bci-calendar-toolbar-clear::before,
+.crh-opportunity-hub button.wm-bci-calendar-toolbar-clear::after,
+.crh-opportunity-hub button.wm-bci-opportunities__clear-filters::before,
+.crh-opportunity-hub button.wm-bci-opportunities__clear-filters::after {
+	content: none !important;
+	display: none !important;
+}
+
+.crh-opportunity-hub button.wm-bci-calendar-toolbar-clear[hidden],
+.crh-opportunity-hub button.wm-bci-opportunities__clear-filters[hidden] {
+	display: none;
+}
+
+.crh-opportunity-hub button.wm-bci-calendar-toolbar-clear:hover,
+.crh-opportunity-hub button.wm-bci-calendar-toolbar-clear:active,
+.crh-opportunity-hub button.wm-bci-calendar-toolbar-clear:focus-visible,
+.crh-opportunity-hub button.wm-bci-opportunities__clear-filters:hover,
+.crh-opportunity-hub button.wm-bci-opportunities__clear-filters:active,
+.crh-opportunity-hub button.wm-bci-opportunities__clear-filters:focus-visible {
+	background: transparent !important;
+	color: $blue !important;
+	text-decoration: underline;
+}
+
+.crh-opportunity-hub button.wm-bci-calendar-toolbar-clear:focus-visible,
+.crh-opportunity-hub button.wm-bci-opportunities__clear-filters:focus-visible {
+	outline: 2px solid $blue;
+	outline-offset: 0.25rem;
+}
+
+.wm-bci-opportunities {
+	margin-top: 6rem;
+}
+
+.wm-bci-opportunities__header {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 4rem;
+	justify-content: space-between;
+	margin-bottom: 64px;
+}
+
+.wm-bci-opportunities p.wm-bci-opportunities__eyebrow {
+	color: $blue;
+	font-family: $body-font-family;
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.7px;
+	line-height: 1;
+	margin: 0 0 1.5rem;
+	text-transform: uppercase;
+}
+
+.wm-bci-opportunities__title {
+	color: $blue;
+	font-family: $body-serif-family;
+	font-size: 3.3125rem;
+	font-weight: 300;
+	letter-spacing: 0;
+	line-height: 1.1;
+	margin: 0;
+}
+
+.wm-bci-opportunities__filters {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	justify-content: flex-start;
+}
+
+.wm-bci-opportunities__filters-group {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem 4rem;
+}
+
+.wm-bci-opportunities__filters-label {
+	color: $blue;
+	font-family: $body-font-family;
+	font-size: 1rem;
+	line-height: 1.3;
+}
+
+.wm-bci-opportunities__filter-dropdown {
+	display: inline-flex;
+	position: relative;
+	z-index: 40;
+}
+
+.wm-bci-opportunities__filter-dropdown[open] {
+	z-index: 60;
+}
+
+.wm-bci-opportunities__filter-dropdown[open]::after {
+	content: "";
+	height: 0.5rem;
+	inline-size: max(100%, 15.75rem);
+	left: 0;
+	position: absolute;
+	top: 100%;
+}
+
+.wm-bci-opportunities__filter-trigger {
+	appearance: none;
+	align-items: center;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	color: $wm-bci-text;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: $body-font-family;
+	font-size: 1.25rem;
+	font-weight: 400;
+	gap: 0.5rem;
+	justify-content: space-between;
+	inline-size: 11.375rem;
+	line-height: 1.4;
+	list-style: none;
+	max-width: 100%;
+	padding: 0;
+	position: relative;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.wm-bci-opportunities__filter-trigger::-webkit-details-marker {
+	display: none;
+}
+
+.wm-bci-opportunities__filter-trigger:focus-visible {
+	outline: 2px solid $teal;
+	outline-offset: 0.25rem;
+}
+
+.wm-bci-opportunities__filter-dropdown[open] > .wm-bci-opportunities__filter-trigger,
+.wm-bci-opportunities__filter-dropdown > .wm-bci-opportunities__filter-trigger[aria-expanded="true"] {
+	color: $blue;
+}
+
+.wm-bci-opportunities__filter-label {
+	color: currentcolor;
+	flex: 1 1 auto;
+	font-family: $body-font-family;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.wm-bci-opportunities__filter-panel {
+	background: $wm-bci-surface;
+	// border: 1px solid $wm-bci-border-soft;
+	border-radius: 8px;
+	box-shadow: 0 4px 4px 0 rgba(0, 23, 52, 0.04);
+	left: 0;
+	min-width: 15.75rem;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	z-index: 80;
+}
+
+.wm-bci-opportunities__filter-option {
+	align-items: center;
+	border-bottom: 1px solid $wm-bci-border-soft;
+	color: $wm-bci-text;
+	cursor: pointer;
+	display: flex;
+	font-family: $body-font-family;
+	font-size: 0.875rem;
+	gap: 0.5rem;
+	line-height: 1.3;
+	margin: 0;
+	padding: 0.75rem 1rem;
+	transition: background-color 160ms ease;
+	white-space: nowrap;
+}
+
+.wm-bci-opportunities__filter-option:last-child {
+	border-bottom: 0;
+}
+
+.wm-bci-opportunities__filter-option:hover,
+.wm-bci-opportunities__filter-option:focus-within {
+	background: $wm-bci-surface-muted;
+}
+
+.wm-bci-opportunities__filter-choice {
+	appearance: none;
+	background: $wm-bci-surface;
+	border: 1.5px solid #4f5559;
+	border-radius: 2px;
+	cursor: pointer;
+	flex: 0 0 auto;
+	height: 0.75rem;
+	margin: 0 !important;
+	margin-right: 0 !important;
+	width: 0.75rem;
+}
+
+.wm-bci-opportunities__filter-choice:checked {
+	background: $blue;
+	border-color: $blue;
+}
+
+.wm-bci-opportunities__filter-choice:focus-visible {
+	outline: 2px solid $teal;
+	outline-offset: 2px;
+}
+
+.wm-bci-filter-chevron svg {
+	display: block;
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+.wm-bci-opportunities__member-filter {
+	position: relative;
+}
+
+.wm-bci-opportunities__member-filter[open]::after {
+	inline-size: min(53.125rem, calc(100vw - 2rem));
+}
+
+.wm-bci-opportunities__member-panel {
+	min-width: 0;
+	width: min(53.125rem, calc(100vw - 2rem));
+}
+
+.wm-bci-opportunities__member-options {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	box-shadow: 0 4px 4px 0 rgba(0, 23, 52, 0.04);
+	position: relative;
+	row-gap: 0;
+}
+
+.wm-bci-opportunities__member-options::before {
+	background: $wm-bci-border-soft;
+	bottom: 0;
+	content: "";
+	left: 50%;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	transform: translateX(-0.5px);
+	width: 1px;
+}
+
+.wm-bci-opportunities__member-column {
+	min-width: 0;
+}
+
+.wm-bci-opportunities__member-option {
+	align-items: center;
+	border-bottom: 1px solid $wm-bci-border-soft;
+	color: $wm-bci-text;
+	cursor: pointer;
+	display: flex;
+	font-family: $body-font-family;
+	font-size: 0.8125rem;
+	gap: 0.5rem;
+	line-height: 1.3;
+	padding: 0.75rem 1rem;
+	white-space: nowrap;
+}
+
+.wm-bci-opportunities__member-option input {
+	appearance: none;
+	background: $wm-bci-surface;
+	border: 1.5px solid #4f5559;
+	border-radius: 1px;
+	flex: 0 0 auto;
+	height: 0.75rem;
+	// margin-top: 0.125rem;
+	margin: unset;
+	width: 0.75rem;
+}
+
+.wm-bci-opportunities__member-option input:checked {
+	background: $blue;
+	border-color: $blue;
+	// box-shadow: inset 0 0 0 2px $wm-bci-surface;
+}
+
+.wm-bci-opportunities__member-option input:focus-visible {
+	outline: 2px solid $teal;
+	outline-offset: 0.1875rem;
+}
+
+.wm-bci-opportunities__grid {
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wm-bci-opportunities__grid.is-hidden,
+.wm-bci-opportunities__empty.is-hidden,
+.wm-bci-opportunities__load-more-wrap.is-hidden {
+	display: none;
+}
+
+.wm-bci-opportunities__empty {
+	background: $wm-bci-surface-muted;
+	border: 1px solid $gray-300;
+
+	@include border-radius-medium();
+	padding: 3rem;
+	text-align: center;
+}
+
+.wm-bci-opportunities__empty-title {
+	color: $blue;
+	font-family: $body-serif-family;
+	font-size: 2rem;
+	font-weight: 300;
+	line-height: 1.2;
+	margin: 0 0 0.75rem;
+}
+
+.wm-bci-opportunities__empty-copy {
+	color: $gray-700;
+	font-family: $body-font-family;
+	font-size: 1rem;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.wm-bci-opportunity-card {
+	display: flex;
+	flex: 1 0 0;
+	flex-direction: column;
+}
+
+.wm-bci-opportunity-card[hidden] {
+	display: none;
+}
+
+.wm-bci-opportunity-card__surface {
+	background: $wm-bci-surface;
+	border-radius: 14px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
+
+.wm-bci-opportunity-card__media {
+	background: $wm-bci-surface-muted;
+	height: 13rem;
+	overflow: hidden;
+	position: relative;
+}
+
+.wm-bci-opportunity-card__placeholder {
+	--wm-bci-opportunity-card-accent: #520066;
+
+	align-items: center;
+	background:
+		radial-gradient(circle at top left, rgba(247, 247, 248, 0.12), transparent 32%),
+		repeating-radial-gradient(circle at top right, rgba(247, 247, 248, 0.12) 0, rgba(247, 247, 248, 0.12) 1px, transparent 1px, transparent 12px),
+		var(--wm-bci-opportunity-card-accent);
+	display: flex;
+	height: 100%;
+	inset: 0;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
+}
+
+.wm-bci-opportunity-card__placeholder::after {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.22));
+	content: "";
+	inset: 0;
+	position: absolute;
+}
+
+.wm-bci-opportunity-card__placeholder-icon {
+	align-items: center;
+	display: inline-flex;
+	height: 4.75rem;
+	justify-content: center;
+	position: relative;
+	width: 4.75rem;
+	z-index: 1;
+}
+
+.wm-bci-opportunity-card__placeholder-icon svg {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.wm-bci-opportunity-card__image {
+	display: block;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.wm-bci-opportunity-card__body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding: 1.5rem;
+}
+
+.wm-bci-type-badge {
+	border-radius: 4px;
+	display: inline-flex;
+	font-family: $body-font-family;
+	font-size: 0.75rem;
+	font-weight: 700;
+	line-height: normal;
+	padding: 0.25rem 0.45rem;
+	width: fit-content;
+}
+
+.wm-bci-type-badge--card,
+.wm-bci-type-badge--modal {
+	color: #fff;
+}
+
+.wm-bci-type-badge--card {
+	font-size: 0.875rem;
+	line-height: normal;
+	padding: 0.1875rem 0.5rem;
+}
+
+.wm-bci-type-badge--modal {
+	font-size: 0.875rem;
+	padding: 0.1875rem 0.5rem;
+}
+
+.wm-bci-type-badge--bci-update {
+	background-color: #004966;
+	color: #fff;
+}
+
+.wm-bci-opportunity-card__badges,
+.wm-bci-opportunity-modal__badge {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.wm-bci-opportunity-card__title {
+	color: $blue !important;
+	font-family: $body-serif-family;
+	font-size: 1.25rem;
+	font-weight: 500 !important;
+	letter-spacing: -0.2px;
+	line-height: 1.1;
+	margin: 0;
+}
+
+.wm-bci-opportunity-card__meta {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.wm-bci-opportunity-card__meta-row {
+	color: $wm-bci-text;
+	font-family: $body-font-family;
+	font-size: 1rem;
+	line-height: 1.3 !important;
+	margin: 0;
+}
+
+.wm-bci-opportunity-card__meta-row strong {
+	font-weight: 700;
+}
+
+.wm-bci-opportunity-card__body > .button.wm-bci-opportunity-card__button {
+	align-self: flex-start;
+	margin-top: auto;
+}
+
+.wm-bci-opportunities__load-more-wrap {
+	display: flex;
+	justify-content: center;
+	margin-top: 2.25rem;
+}
+
+.wm-bci-opportunities__load-more {
+	align-items: center;
+	display: inline-flex;
+}
+
+.wm-bci-opportunity-modal {
+	background: $white;
+	border: 0;
+	border-radius: 8px;
+	box-shadow: 0 24px 48px rgba(38, 40, 42, 0.16);
+	margin: 0 auto;
+	max-height: calc(100vh - 2rem);
+	max-width: 1282px;
+	overflow-y: auto;
+	padding: 3.5rem 2.5rem 2.5rem;
+	top: 50% !important;
+	transform: translateY(-50%);
+	width: min(calc(100% - 2rem), 1282px);
+}
+
+.wm-bci-opportunity-modal__body {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.wm-bci-opportunity-modal__header {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.wm-bci-opportunity-modal__badge {
+	align-self: flex-start;
+}
+
+.wm-bci-opportunity-modal__title {
+	color: $blue;
+	font-family: $body-serif-family;
+	font-size: 2rem;
+	font-weight: 300;
+	letter-spacing: 0;
+	line-height: 1.3;
+	margin: 0;
+}
+
+.wm-bci-opportunity-modal__divider {
+	border-top: 1px solid #ECECED;
+}
+
+.wm-bci-opportunity-modal__meta-grid {
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wm-bci-opportunity-modal__meta-row,
+.wm-bci-opportunity-modal__section {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.wm-bci-opportunity-modal__meta-label {
+	color: $wm-bci-text-muted;
+	font-family: $body-font-family;
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.wm-bci-opportunity-modal__meta-value,
+.wm-bci-opportunity-modal__description {
+	color: $wm-bci-text;
+	font-family: $body-font-family;
+	font-size: 1rem;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.wm-bci-opportunity-modal__description {
+	max-width: 54.5rem;
+}
+
+.wm-bci-opportunity-modal__location {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.wm-bci-opportunity-modal__location-badge {
+	background: rgba(0, 73, 102, 0.2);
+	border: 1px solid $blue;
+	border-radius: 4px;
+	color: $blue;
+	display: inline-flex;
+	font-family: $body-font-family;
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: 1;
+	padding: 0.25rem 0.5rem;
+}
+
+.wm-bci-opportunity-modal__location-text {
+	color: $wm-bci-text;
+	font-family: $body-font-family;
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+.wm-bci-opportunity-modal__attachments {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.wm-bci-opportunity-modal__attachment {
+	align-items: center;
+	background: $gray-100;
+	border: 1px solid $gray-300;
+	border-radius: 4px;
+	color: $wm-bci-text;
+	display: inline-flex;
+	font-family: $body-font-family;
+	font-size: 0.875rem;
+	font-weight: 700;
+	gap: 0.25rem;
+	padding: 0.5rem;
+	text-decoration: none;
+}
+
+.wm-bci-opportunity-modal__attachment-icon {
+	display: inline-flex;
+	flex: 0 0 auto;
+	height: 1.25rem;
+	width: 1.25rem;
+}
+
+.wm-bci-opportunity-modal__attachment-label {
+	line-height: 1.35;
+}
+
+.wm-bci-opportunity-modal__attachment svg {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.wm-bci-opportunity-modal__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+.wm-bci-opportunity-modal__meta-row[hidden],
+.wm-bci-opportunity-modal__section[hidden],
+.wm-bci-opportunity-modal__divider[hidden],
+.wm-bci-opportunity-modal__actions[hidden],
+.wm-bci-opportunity-modal__action[hidden] {
+	display: none;
+}
+
+.wm-bci-opportunity-modal__action {
+	align-items: center;
+	display: inline-flex;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-view-harness {
+	overflow: visible !important;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-scrollgrid {
+	border-radius: 8px;
+	box-shadow: 0 31px 49.2px -31px rgba(0, 0, 0, 0.25);
+	overflow: hidden;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day-frame {
+	display: flex;
+	flex-direction: column;
+	height: var(--wm-bci-calendar-day-height);
+	min-height: var(--wm-bci-calendar-day-height);
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day.fc-day-other .fc-daygrid-day-frame .fc-daygrid-day-events {
+	opacity: 0.4;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day-top {
+	flex: 0 0 auto;
+	flex-direction: row !important;
+	opacity: 1;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day-events {
+	margin: 0;
+	min-height: 0;
+	overflow: visible;
+	padding: 0 0.5rem;
+}
+
+// .wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day-bottom {
+// 	padding: 0 0.5rem 0.5rem;
+// }
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-event-harness-abs {
+	margin-inline: 0.5rem;
+	z-index: 7;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-event-harness-abs[style*="top: 23px"] .fc-daygrid-event {
+	margin-top: 0.25rem;
+	padding-inline: 4px;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-day-frame:not(.wm-bci-calendar-has-abs-events) .fc-daygrid-event-harness:not(.fc-daygrid-event-harness-abs) + .fc-daygrid-event-harness:not(.fc-daygrid-event-harness-abs) .fc-daygrid-event {
+	margin-top: 0.25rem;
+	padding-inline: 4px;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-block-event,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-h-event {
+	margin: 0;
+	padding-inline: 4px;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-direction-ltr .fc-daygrid-event.fc-event-end,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-direction-ltr .fc-daygrid-event.fc-event-start {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-block-event .fc-event-main,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-block-event .fc-event-main-frame {
+	display: flex;
+	min-width: 0;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-block-event .fc-event-main-frame {
+	align-items: center;
+	gap: 0.25rem;
+	overflow: hidden;
+	padding-inline: 4px;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-block-event .fc-event-time {
+	flex: 0 0 auto;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.3;
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-block-event .fc-event-time::after {
+	content: "|";
+	font-weight: 400;
+	margin-inline-start: 0.25rem;
+	margin-inline-end: 0.25rem;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-block-event .fc-event-title-container {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-block-event .fc-event-title {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.3;
+	margin: 0;
+	min-width: 0;
+	overflow: hidden;
+	padding: 0;
+	white-space: nowrap;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-more-link {
+	color: $blue;
+	display: block;
+	font-family: $body-font-family;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	line-height: 1.3;
+	margin-top: 0.25rem;
+	text-decoration: none;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-more-link:hover,
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-more-link:focus-visible {
+	color: $teal;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-popover {
+	background: $wm-bci-surface;
+	border: 1px solid $wm-bci-border-soft;
+	border-radius: 0.875rem;
+	box-shadow: 0 24px 48px rgba($gray-1000, 0.16);
+	overflow: hidden;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-popover-header {
+	align-items: center;
+	background: $wm-bci-surface-muted;
+	border-bottom: 1px solid $wm-bci-border-soft;
+	display: flex;
+	gap: 0.75rem;
+	justify-content: space-between;
+	padding: 0.75rem 1rem;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-popover-title {
+	color: $blue;
+	font-family: $body-serif-family;
+	font-size: 1.125rem;
+	font-weight: 300;
+	line-height: 1.2;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-popover-close {
+	color: $wm-bci-text-muted;
+	font-size: 1.25rem;
+	line-height: 1;
+	opacity: 1;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-popover-body {
+	max-height: min(18rem, calc(100vh - 6rem));
+	overflow: auto;
+	padding: 0.5rem 0.75rem 0.75rem;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-popover-body .fc-daygrid-event-harness + .fc-daygrid-event-harness {
+	margin-top: 0.25rem;
+}
+
+.wm-bci-calendar-tooltip {
+	display: grid;
+	gap: 0.9rem;
+	line-height: 1.55;
+	max-width: min(21rem, calc(100vw - 2rem));
+	min-width: min(18rem, calc(100vw - 3rem));
+	padding: 1rem 1.05rem;
+}
+
+.wm-bci-calendar-tooltip__header {
+	border-bottom: 1px solid rgba(204, 212, 220, 0.8);
+	display: grid;
+	gap: 0.35rem;
+	padding-bottom: 0.75rem;
+}
+
+.wm-bci-calendar-tooltip__eyebrow {
+	color: #238a9a;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.wm-bci-type-badge--calendar-tooltip {
+	justify-self: start;
+}
+
+.wm-bci-calendar-tooltip__title {
+	color: #004966;
+	font-family: "Noto Serif", serif;
+	font-size: 1.2rem;
+	line-height: 1.2;
+	margin: 0;
+}
+
+.wm-bci-calendar-tooltip__meta {
+	display: grid;
+	gap: 0.35rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wm-bci-calendar-tooltip__meta li {
+	font-size: 0.92rem;
+	margin: 0;
+}
+
+.wm-bci-calendar-tooltip__body {
+	display: grid;
+	font-size: 0.95rem;
+	gap: 0.65rem;
+	max-height: min(11rem, calc(100vh - 16rem));
+	overflow: auto;
+	padding-right: 0.35rem;
+}
+
+.wm-bci-calendar-tooltip__body p {
+	font-size: 1rem;
+	margin: 0;
+}
+
+.wm-bci-calendar-tooltip__footer {
+	border-top: 1px solid rgba(204, 212, 220, 0.8);
+	font-size: 0.92rem;
+	margin: 0;
+	padding-top: 0.8rem;
+}
+
+.wm-bci-calendar-tooltip__footer a {
+	color: #004966;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar .fc-daygrid-event-dot {
+	display: none;
+}
+
+.wm-bci-workflow-section__calendar .gv-fullcalendar:has([data-tippy-root]) .fc-scrollgrid-section-header.fc-scrollgrid-section-sticky > * {
+	z-index: 0 !important;
+}
+
+thead {
+	.fc-scroller-harness {
+		border-radius: 8px 8px 0 0;
+	}
+}
+
+tbody {
+	.fc-scroller-harness {
+		border-radius: 0 0 8px 8px;
+	}
+}
+
+@media (min-width: 900px) {
+
+	.crh-opportunity-hub__intro-grid {
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+	}
+
+	.crh-opportunity-hub__column--one-third {
+		grid-column: span 4;
+	}
+
+	.crh-opportunity-hub__column--one-half {
+		grid-column: span 6;
+	}
+
+	.crh-opportunity-hub__column--two-thirds {
+		grid-column: span 8;
+	}
+
+	.crh-opportunity-hub__column--full {
+		grid-column: 1 / -1;
+	}
+}
+
+@media print,
+	screen and (max-width: 63.9988em) {
+
+	.crh-opportunity-hub {
+		padding: 3.5rem 1rem;
+	}
+
+	.wm-bci-opportunities__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.wm-bci-opportunity-modal__meta-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.wm-bci-opportunities__member-panel {
+		width: min(32rem, 90vw);
+	}
+
+	.wm-bci-calendar-toolbar-filter__member-panel {
+		width: min(32rem, 90vw);
+	}
+}
+
+@media print,
+	screen and (max-width: 39.9988em) {
+
+	.crh-opportunity-hub {
+		padding: 3rem 1rem;
+	}
+
+	.wm-bci-submit-modal {
+		height: auto;
+		max-height: min(calc(100% - 1rem), calc(100vh - 2rem));
+		min-height: 0;
+		overflow-y: auto;
+		padding: 3rem 1.5rem 2rem;
+		width: calc(100% - 1rem);
+	}
+
+	.wm-bci-calendar-toolbar-filter {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.wm-bci-calendar-toolbar-filters {
+		width: 100%;
+	}
+
+	.wm-bci-calendar-toolbar-filter__trigger,
+	.wm-bci-calendar-toolbar-filter__panel {
+		min-width: 0;
+		width: 100%;
+	}
+
+	.wm-bci-calendar-toolbar-filter__option {
+		white-space: normal;
+	}
+
+	.wm-bci-calendar-toolbar-filter__member-columns {
+		grid-template-columns: 1fr;
+	}
+
+	.wm-bci-calendar-toolbar-filter__member-column + .wm-bci-calendar-toolbar-filter__member-column {
+		border-left: 0;
+	}
+
+	.wm-bci-opportunities {
+		margin-top: 5rem;
+	}
+
+	.wm-bci-opportunities__title {
+		font-size: 2.25rem;
+	}
+
+	.wm-bci-opportunities__filters {
+		align-items: flex-start;
+		justify-content: flex-start;
+		width: 100%;
+	}
+
+	.wm-bci-opportunities__filters-group {
+		gap: 1rem;
+		width: 100%;
+	}
+
+	.wm-bci-opportunities__filter-dropdown {
+		width: 100%;
+	}
+
+	.wm-bci-opportunities__filter-trigger,
+	.wm-bci-opportunities__filter-panel,
+	.wm-bci-opportunities__member-panel {
+		font-size: 1.125rem;
+		min-width: 100%;
+		width: 100%;
+	}
+
+	.wm-bci-opportunities__filter-option {
+		white-space: normal;
+	}
+
+	.wm-bci-opportunities__member-panel {
+		left: 0;
+		right: auto;
+	}
+
+	.wm-bci-opportunities__member-options,
+	.wm-bci-opportunities__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.wm-bci-opportunities__member-options::before {
+		display: none;
+	}
+
+	.wm-bci-opportunities__member-option {
+		white-space: normal;
+	}
+
+	.wm-bci-opportunity-modal {
+		max-height: calc(100vh - 2rem);
+		overflow-y: auto;
+		padding: 3rem 1.5rem 2rem;
+		width: calc(100% - 1rem);
+	}
+
+	.wm-bci-calendar-tooltip {
+		min-width: auto;
+	}
+}
+
+.opportunity-hub-container {
+	width: 100%;
+
+	.spacing-wrapper {
+		width: 100%;
+		margin-inline: auto;
+	}
+
+	.grid-x {
+
+		>.cg-rich-text {
+			display: flex;
+			gap: 24px;
+			flex-direction: column;
+		}
+
+		div.cell {
+
+			.supertitle {
+				color: $blue;
+			}
+
+			.supertitle,
+			h2,
+			p.body {
+				margin-bottom: unset;
+			}
+		}
+	}
+
+	.gv-fullcalendar .fc-col-header-cell {
+		background-color: $blue;
+		text-align: left;
+		padding-inline-start: 12px;
+	}
+
+	.gv-fullcalendar .fc-toolbar-chunk {
+		gap: 1rem;
+	}
+}
+
+.opportunity-hub-container + .content-block.bg-color-theme-1.has-top-wave .wave.top {
+	background-color: $gray-50;
+	margin-top: -2px;
+}
+
+.opportunity-hub-container + .content-block.bg-color-theme-1.has-top-wave .wave.top svg path {
+	fill: $blue;
+}
+
+.opportunity-hub-container + .content-block.bg-color-theme-1.has-top-wave .wave.top svg {
+	margin-bottom: -2px;
+}

@@ -1,0 +1,222 @@
+.wm-bci-calendar-toolbar-filter {
+	align-items: center;
+	display: inline-flex;
+	position: relative;
+	z-index: 40;
+}
+
+.wm-bci-calendar-toolbar-filter[hidden] {
+	display: none;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger {
+	appearance: none;
+	align-items: center;
+	background: #ffffff;
+	border: 1px solid #ccd4dc;
+	border-radius: 0.75rem;
+	box-shadow: none;
+	color: #26282a;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: 600;
+	gap: 0.625rem;
+	height: 2.5rem;
+	justify-content: space-between;
+	line-height: 1.3;
+	list-style: none;
+	min-height: 2.5rem;
+	min-width: 10.875rem;
+	padding: 0.5rem 1rem !important;
+	position: relative;
+	text-align: left;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger::-webkit-details-marker {
+	display: none;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger::before {
+	content: none !important;
+	display: none !important;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger::after {
+	border: solid #26282a;
+	border-width: 0 2px 2px 0;
+	content: "";
+	flex: 0 0 auto;
+	height: 0.5rem;
+	margin-left: 0.125rem;
+	pointer-events: none;
+	transform: translateY(-0.125rem) rotate(45deg);
+	transition: transform 160ms ease;
+	width: 0.5rem;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger:hover,
+.wm-bci-calendar-toolbar-filter__trigger:focus-visible {
+	background: #ffffff;
+	border-color: #aeb9c1;
+	color: #26282a;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger:focus-visible {
+	outline: 2px solid #238a9a;
+	outline-offset: 2px;
+}
+
+.wm-bci-calendar-toolbar-filter__trigger[aria-expanded="true"]::after {
+	transform: translateY(0.125rem) rotate(225deg);
+}
+
+.wm-bci-calendar-toolbar-filter__panel {
+	background: #ffffff;
+	border: 1px solid #d9dee3;
+	border-radius: 0.75rem;
+	box-shadow: 0 4px 12px rgba(28, 30, 32, 0.08);
+	left: 0;
+	min-width: 15.75rem;
+	overflow: hidden;
+	padding: 0.25rem 0;
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	z-index: 80;
+}
+
+.wm-bci-calendar-toolbar-filter__option {
+	align-items: center;
+	border-bottom: 1px solid #d9dee3;
+	color: #1c1f23;
+	cursor: pointer;
+	display: flex;
+	font-size: 0.875rem;
+	gap: 0.625rem;
+	line-height: 1.35;
+	margin: 0;
+	min-height: 2.625rem;
+	padding: 0.75rem 1rem;
+	transition: background-color 160ms ease;
+	white-space: nowrap;
+}
+
+.wm-bci-calendar-toolbar-filter__option:last-child {
+	border-bottom: 0;
+}
+
+.wm-bci-calendar-toolbar-filter__option:hover,
+.wm-bci-calendar-toolbar-filter__option:focus-within {
+	background: #f5f7f8;
+}
+
+.wm-bci-calendar-toolbar-filter__checkbox {
+	appearance: none;
+	background: #ffffff;
+	border: 1.5px solid #4f5559;
+	border-radius: 2px;
+	cursor: pointer;
+	flex: 0 0 auto;
+	height: 0.75rem;
+	margin: 0;
+	width: 0.75rem;
+}
+
+.wm-bci-calendar-toolbar-filter__checkbox:checked {
+	background: #004966;
+	border-color: #004966;
+}
+
+.wm-bci-calendar-toolbar-filter__checkbox:focus-visible {
+	outline: 2px solid #238a9a;
+	outline-offset: 2px;
+}
+
+.gform_wrapper .gv-fullcalendar .fc-daygrid-event-harness-abs {
+	margin-inline: 0.5rem;
+	z-index: 7;
+}
+
+.gform_wrapper .gv-fullcalendar .fc-daygrid-event-harness:not(.fc-daygrid-event-harness-abs) {
+	transform: translateY(var(--wm-bci-calendar-flow-offset, 0));
+}
+
+.wm-bci-calendar-tooltip {
+	display: grid;
+	gap: 0.9rem;
+	line-height: 1.55;
+	max-width: min(21rem, calc(100vw - 2rem));
+	min-width: min(18rem, calc(100vw - 3rem));
+	padding: 1rem 1.05rem;
+}
+
+.wm-bci-calendar-tooltip__header {
+	border-bottom: 1px solid rgba(204, 212, 220, 0.8);
+	display: grid;
+	gap: 0.35rem;
+	padding-bottom: 0.75rem;
+}
+
+.wm-bci-calendar-tooltip__eyebrow {
+	color: #238a9a;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.wm-bci-calendar-tooltip__title {
+	color: #004966;
+	font-family: "Noto Serif", serif;
+	font-size: 1.2rem;
+	line-height: 1.2;
+	margin: 0;
+}
+
+.wm-bci-calendar-tooltip__meta {
+	display: grid;
+	gap: 0.35rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wm-bci-calendar-tooltip__meta li {
+	font-size: 0.92rem;
+	margin: 0;
+}
+
+.wm-bci-calendar-tooltip__body {
+	display: grid;
+	font-size: 0.95rem;
+	gap: 0.65rem;
+	max-height: min(11rem, calc(100vh - 16rem));
+	overflow: auto;
+	padding-right: 0.35rem;
+}
+
+.wm-bci-calendar-tooltip__body p {
+	font-size: 1rem;
+	margin: 0;
+}
+
+.wm-bci-calendar-tooltip__footer {
+	border-top: 1px solid rgba(204, 212, 220, 0.8);
+	font-size: 0.92rem;
+	margin: 0;
+	padding-top: 0.8rem;
+}
+
+.wm-bci-calendar-tooltip__footer a {
+	color: #004966;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.gv-fullcalendar:has([data-tippy-root]) .fc-scrollgrid-section-header.fc-scrollgrid-section-sticky > * {
+	z-index: 0 !important;
+}

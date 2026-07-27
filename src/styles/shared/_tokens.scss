@@ -1,0 +1,108 @@
+@use "sass:math";
+
+$white: #fff;
+$blue: #004966;
+$teal: #238a9a;
+$light-yellow: #e1d472;
+$gray-50: #f7f7f8;
+$gray-200: #dcdcdd;
+$gray-100: #ececed;
+$gray-300: #c1c2c3;
+$gray-400: #a6a7a8;
+$gray-500: #8a8c8d;
+$gray-600: #6f7173;
+$gray-700: #555759;
+$gray-900: #262b2a;
+$gray-1000: #1c1e20;
+$black: $gray-1000;
+
+$body-font-family: "Noto Sans", sans-serif;
+$body-serif-family: "Noto Serif", serif;
+
+$wm-bci-surface: $white;
+$wm-bci-surface-muted: $gray-50;
+$wm-bci-border: #e8e8e8;
+$wm-bci-border-soft: $gray-100;
+$wm-bci-border-strong: $gray-700;
+$wm-bci-text: $gray-900;
+$wm-bci-text-strong: $gray-1000;
+$wm-bci-text-muted: $gray-600;
+$wm-bci-shadow-soft: 0 18px 36px rgba(18, 23, 28, 0.06);
+$wm-bci-shadow-strong: 0 28px 48px rgba(18, 23, 28, 0.12);
+$wm-bci-shadow-modal: 0 24px 32px rgba(50, 50, 71, 0.08), 0 16px 16px rgba(50, 50, 71, 0.08);
+$wm-bci-type-learning: #520066;
+
+@function rem-calc($value) {
+
+	@return math.div($value, 16) * 1rem;
+}
+
+@mixin border-radius-small() {
+	border-radius: 8px;
+}
+
+@mixin border-radius-medium() {
+	border-radius: 14px;
+}
+
+@mixin smooth-transition($element, $speed) {
+	-webkit-transition: $element #{$speed}s ease-in;
+	-moz-transition: $element #{$speed}s ease-in;
+	-o-transition: $element #{$speed}s ease-in;
+	transition: $element #{$speed}s ease-in;
+}
+
+@mixin body-styles() {
+	font-family: $body-font-family;
+	font-size: 20px;
+	line-height: 28px;
+
+	@include breakpoint(large up) {
+		font-size: 20px;
+	}
+}
+
+@mixin supertitle-styles() {
+	font-size: 14px;
+	line-height: 1;
+	text-transform: uppercase;
+	font-weight: 700;
+
+	@include breakpoint(large up) {
+		font-size: 14px;
+	}
+}
+
+@mixin breakpoint($name) {
+
+	@if $name == medium down {
+
+		@media print, screen and (max-width: 39.9988em) {
+			@content;
+		}
+	} @else if $name == large down {
+
+		@media print, screen and (max-width: 63.9988em) {
+			@content;
+		}
+	} @else if $name == large up {
+
+		@media print, screen and (min-width: 64em) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+@mixin crh-surface-vars($selector) {
+	#{$selector} {
+		--crh-surface: #{$white};
+		--crh-surface-muted: #{$gray-50};
+		--crh-border: #{$gray-100};
+		--crh-text: #{$gray-900};
+		--crh-text-muted: #{$gray-600};
+		--crh-brand: #{$blue};
+		--crh-brand-contrast: #{$white};
+	}
+}
